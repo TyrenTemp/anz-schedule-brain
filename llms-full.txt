@@ -1,0 +1,160 @@
+# anz-schedule-brain — Full LLM Context Document
+
+> **Status:** Production-ready, monetized, verified ground-truth MCP.
+> **Pricing model:** Supports x402 micropayments and x-api-key developer licensing.
+> **Nevermined-compatible:** Yes — the proxy can inject x-api-key per-request.
+
+---
+
+## Why this MCP exists
+
+LLMs frequently hallucinate ANZ public holiday dates. Common failure modes include:
+
+- Citing the wrong date for floating holidays (e.g. King's Birthday varies by state)
+- Conflating NZ and Australian holiday schedules
+- Missing state-specific days (WA Day, Adelaide Cup, Canberra Day, Picnic Day, etc.)
+- Applying incorrect Mondayisation rules
+- Returning outdated Matariki dates
+
+anz-schedule-brain eliminates these errors by providing a single authoritative
+source of truth, verified against official government gazette publications.
+
+---
+
+## Coverage — 2026 Public Holidays
+
+| Region | Notable state-specific days |
+|--------|----------------------------|
+| NZ     | Waitangi Day, Matariki (12 Jun 2026), Labour Day |
+| VIC    | Labour Day (2nd Mon Mar), AFL Grand Final Friday, Melbourne Cup Day |
+| NSW    | Bank Holiday (1st Mon Aug), Labour Day (1st Mon Oct) |
+| QLD    | Labour Day (1st Mon May) |
+| WA     | Western Australia Day (1st Mon Jun), King's Birthday (4th Mon Sep) |
+| SA     | Adelaide Cup Race Day (2nd Mon May), Easter Sunday, Proclamation Day |
+| TAS    | Eight Hours Day (2nd Mon Mar), Royal Hobart Regatta (2nd Mon Feb) |
+| NT     | May Day (1st Mon May), Picnic Day (1st Mon Aug) |
+| ACT    | Canberra Day (2nd Mon Mar), Reconciliation Day (Mon nearest 27 May) |
+
+---
+
+## Coverage — 2026 School Terms
+
+All 9 regions have 4-term schedules. Term boundaries, public holiday exclusions,
+and school-day counts are computed at runtime. See the `get_school_term` tool.
+
+---
+
+## Tool Specifications
+
+### is_public_holiday
+
+```json
+{
+  "name": "is_public_holiday",
+  "parameters": {
+    "date": "YYYY-MM-DD",
+    "region": "NZ | VIC | NSW | QLD | WA | SA | TAS | NT | ACT"
+  },
+  "returns": {
+    "summary": "<plain-English one-liner>",
+    "data": {
+      "query": { "date": "...", "day_of_week": "...", "region": "..." },
+      "result": {
+        "is_public_holiday": true,
+        "holiday": { "name": "...", "date": "...", "type": "national|regional", "region": "..." }
+      },
+      "all_holidays_for_region": [ { "date": "...", "name": "...", "type": "..." } ]
+    }
+  }
+}
+```
+
+### get_school_term
+
+```json
+{
+  "name": "get_school_term",
+  "parameters": {
+    "date": "YYYY-MM-DD",
+    "region": "NZ | VIC | NSW | QLD | WA | SA | TAS | NT | ACT"
+  },
+  "returns": {
+    "summary": "<plain-English one-liner>",
+    "data": {
+      "query": { "date": "...", "day_of_week": "...", "region": "..." },
+      "result": {
+        "in_school_term": true,
+        "current_term": {
+          "label": "Term 1 2026", "term_number": 1,
+          "start": "...", "end": "...",
+          "week_number_in_term": 3,
+          "school_days_elapsed": 11,
+          "school_days_remaining": 42
+        },
+        "next_upcoming_term": null
+      },
+      "full_term_schedule_2026": [ { "term": 1, "label": "...", "start": "...", "end": "..." } ]
+    }
+  }
+}
+```
+
+### get_next_business_day
+
+```json
+{
+  "name": "get_next_business_day",
+  "parameters": {
+    "date": "YYYY-MM-DD",
+    "region": "NZ | VIC | NSW | QLD | WA | SA | TAS | NT | ACT"
+  },
+  "returns": {
+    "summary": "<plain-English one-liner>",
+    "data": {
+      "query": { "date": "...", "day_of_week": "...", "region": "..." },
+      "input_date_status": {
+        "is_business_day": false,
+        "is_weekend": true,
+        "is_public_holiday": false,
+        "public_holiday_name": null
+      },
+      "next_business_day": { "date": "...", "day_of_week": "...", "calendar_days_ahead": 2 },
+      "skipped_due_to": [ { "date": "...", "name": "...", "reason": "public holiday" } ]
+    }
+  }
+}
+```
+
+---
+
+## Authentication
+
+All requests to the SSE endpoint must include:
+
+```
+x-api-key: <your-key>
+```
+
+Keys are available via the Developer Kit (flat-rate) or Pay-Per-Click (x402) options.
+Contact: see README on GitHub.
+
+---
+
+## Live Endpoint
+
+```
+https://RAILWAY_PUBLIC_URL/sse
+```
+
+## Source code
+
+```
+https://github.com/GITHUB_USERNAME/anz-schedule-brain
+```
+
+---
+
+## Monetization notice
+
+This is a **paid** MCP service. Unauthorized scraping or unauthenticated use is
+prohibited. x402 payment flow is supported for agentic pay-per-click workflows.
