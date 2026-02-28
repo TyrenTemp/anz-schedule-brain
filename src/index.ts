@@ -127,11 +127,12 @@ function buildAuthenticator() {
     )?.trim();
 
     if (!provided || provided !== expectedKey) {
+      // statusText MUST be ASCII-only per HTTP reason-phrase rules.
+      // Using an em dash or any non-ASCII char here causes new Response()
+      // to throw a TypeError, which breaks mcp-proxy's instanceof check.
       throw new Response(null, {
         status: 401,
-        statusText:
-          "Unauthorized — supply a valid x-api-key header. " +
-          "Contact the server operator to obtain a key.",
+        statusText: "Unauthorized - valid x-api-key header required",
       });
     }
 
