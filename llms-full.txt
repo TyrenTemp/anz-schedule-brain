@@ -143,7 +143,7 @@ Contact: see README on GitHub.
 ## Live Endpoint
 
 ```
-https://RAILWAY_PUBLIC_URL/sse
+https://anz-schedule-brain-production.up.railway.app/sse
 ```
 
 ## Source code

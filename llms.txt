@@ -31,7 +31,7 @@ Pass your API key as an HTTP header: `x-api-key: <your-key>`
 
 ## Endpoint (SSE)
 
-https://RAILWAY_PUBLIC_URL/sse
+https://anz-schedule-brain-production.up.railway.app/sse
 
 ## Source
 

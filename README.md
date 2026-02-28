@@ -4,7 +4,7 @@
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template)
 
-> **Live SSE endpoint:** `https://RAILWAY_PUBLIC_URL/sse`
+> **Live SSE endpoint:** `https://anz-schedule-brain-production.up.railway.app/sse`
 > **GitHub:** `https://github.com/TyrenTemp/anz-schedule-brain`
 
 ---
@@ -153,7 +153,7 @@ Add to `.cursor/mcp.json` in your project (or global `~/.cursor/mcp.json`):
 {
   "mcpServers": {
     "anz-schedule-brain-remote": {
-      "url": "https://RAILWAY_PUBLIC_URL/sse",
+      "url": "https://anz-schedule-brain-production.up.railway.app/sse",
       "headers": {
         "x-api-key": "sk-anz-<your-key-here>"
       }
