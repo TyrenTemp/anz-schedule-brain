@@ -35,4 +35,4 @@ https://RAILWAY_PUBLIC_URL/sse
 
 ## Source
 
-https://github.com/GITHUB_USERNAME/anz-schedule-brain
+https://github.com/TyrenTemp/anz-schedule-brain

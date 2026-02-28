@@ -5,7 +5,7 @@
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template)
 
 > **Live SSE endpoint:** `https://RAILWAY_PUBLIC_URL/sse`
-> **GitHub:** `https://github.com/GITHUB_USERNAME/anz-schedule-brain`
+> **GitHub:** `https://github.com/TyrenTemp/anz-schedule-brain`
 
 ---
 
@@ -165,7 +165,7 @@ Add to `.cursor/mcp.json` in your project (or global `~/.cursor/mcp.json`):
 ## Quick-Start: Local Development
 
 ```bash
-git clone https://github.com/GITHUB_USERNAME/anz-schedule-brain.git
+git clone https://github.com/TyrenTemp/anz-schedule-brain.git
 cd anz-schedule-brain
 npm install
 cp .env.example .env      # no key needed for local dev
