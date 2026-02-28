@@ -1,0 +1,12 @@
+diff --git a/node_modules/fastmcp/dist/FastMCP.js b/node_modules/fastmcp/dist/FastMCP.js
+index 162cdce..20210af 100644
+--- a/node_modules/fastmcp/dist/FastMCP.js
++++ b/node_modules/fastmcp/dist/FastMCP.js
+@@ -239,6 +239,7 @@ var FastMCPSession = class extends FastMCPSessionEventEmitter {
+       this.#capabilities.prompts = {};
+     }
+     this.#capabilities.logging = {};
++    this.#capabilities.completions = {};
+     this.#server = new Server(
+       { name, version },
+       { capabilities: this.#capabilities, instructions }
