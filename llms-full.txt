@@ -1,8 +1,8 @@
 # anz-schedule-brain — Full LLM Context Document
 
 > **Status:** Production-ready, monetized, verified ground-truth MCP.
-> **Pricing model:** Supports x402 micropayments and x-api-key developer licensing.
-> **Nevermined-compatible:** Yes — the proxy can inject x-api-key per-request.
+> **Pricing model:** x-api-key developer licensing; Nevermined handles pay-per-call billing.
+> **Nevermined-compatible:** Yes — the proxy injects x-api-key per-request.
 
 ---
 
@@ -21,11 +21,11 @@ source of truth, verified against official government gazette publications.
 
 ---
 
-## Coverage — 2026 Public Holidays
+## Coverage — 2026 and 2027 Public Holidays
 
 | Region | Notable state-specific days |
 |--------|----------------------------|
-| NZ     | Waitangi Day, Matariki (12 Jun 2026), Labour Day |
+| NZ     | Waitangi Day, Matariki (Jun, varies by year), Labour Day |
 | VIC    | Labour Day (2nd Mon Mar), AFL Grand Final Friday, Melbourne Cup Day |
 | NSW    | Bank Holiday (1st Mon Aug), Labour Day (1st Mon Oct) |
 | QLD    | Labour Day (1st Mon May) |
@@ -35,12 +35,16 @@ source of truth, verified against official government gazette publications.
 | NT     | May Day (1st Mon May), Picnic Day (1st Mon Aug) |
 | ACT    | Canberra Day (2nd Mon Mar), Reconciliation Day (Mon nearest 27 May) |
 
+All floating holidays are computed per-year from their legislative rules and
+independently verified. ANZAC Day Mondayisation rules are applied per-region.
+
 ---
 
-## Coverage — 2026 School Terms
+## Coverage — 2026 and 2027 School Terms
 
-All 9 regions have 4-term schedules. Term boundaries, public holiday exclusions,
-and school-day counts are computed at runtime. See the `get_school_term` tool.
+All 9 regions have 4-term schedules for both 2026 and 2027. Term boundaries,
+public holiday exclusions, and school-day counts are computed at runtime.
+See the `get_school_term` tool.
 
 ---
 
@@ -93,7 +97,7 @@ and school-day counts are computed at runtime. See the `get_school_term` tool.
         },
         "next_upcoming_term": null
       },
-      "full_term_schedule_2026": [ { "term": 1, "label": "...", "start": "...", "end": "..." } ]
+      "full_term_schedule": [ { "term": 1, "label": "...", "start": "...", "end": "..." } ]
     }
   }
 }
@@ -135,7 +139,7 @@ All requests to the SSE endpoint must include:
 x-api-key: <your-key>
 ```
 
-Keys are available via the Developer Kit (flat-rate) or Pay-Per-Click (x402) options.
+Keys are available via the Developer Kit (flat-rate) or Pay-Per-Call (Nevermined) options.
 Contact: see README on GitHub.
 
 ---
@@ -157,4 +161,4 @@ https://github.com/TyrenTemp/anz-schedule-brain
 ## Monetization notice
 
 This is a **paid** MCP service. Unauthorized scraping or unauthenticated use is
-prohibited. x402 payment flow is supported for agentic pay-per-click workflows.
+prohibited. Pay-per-call billing is supported via Nevermined for agentic workflows.

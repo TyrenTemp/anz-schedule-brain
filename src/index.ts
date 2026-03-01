@@ -1,13 +1,13 @@
 import { FastMCP } from "fastmcp";
 import { z } from "zod";
 import {
-  PUBLIC_HOLIDAYS_2026,
+  ALL_PUBLIC_HOLIDAYS,
   HOLIDAY_LOOKUP,
   VALID_REGIONS,
   type Region,
   type PublicHoliday,
 } from "./data/holidays.js";
-import { SCHOOL_TERMS_2026, type SchoolTerm } from "./data/schoolTerms.js";
+import { ALL_SCHOOL_TERMS, type SchoolTerm } from "./data/schoolTerms.js";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Shared validation schema
@@ -81,7 +81,7 @@ function isBusinessDay(dateStr: string, region: Region): boolean {
 /** Find which school term (if any) contains the given date. */
 function findSchoolTerm(dateStr: string, region: Region): SchoolTerm | null {
   const target = parseLocalDate(dateStr).getTime();
-  for (const term of SCHOOL_TERMS_2026) {
+  for (const term of ALL_SCHOOL_TERMS) {
     if (term.region !== region) continue;
     const start = parseLocalDate(term.start).getTime();
     const end = parseLocalDate(term.end).getTime();
@@ -92,7 +92,7 @@ function findSchoolTerm(dateStr: string, region: Region): SchoolTerm | null {
 
 /** Build the holiday list for a region, sorted chronologically. */
 function holidaysForRegion(region: Region): PublicHoliday[] {
-  return PUBLIC_HOLIDAYS_2026
+  return ALL_PUBLIC_HOLIDAYS
     .filter((h) => h.region === region)
     .sort((a, b) => a.date.localeCompare(b.date));
 }
@@ -150,8 +150,8 @@ const server = new FastMCP<AuthSession>({
   authenticate: buildAuthenticator(),
   instructions:
     "This is a monetized, verified ground-truth MCP for ANZ scheduling. " +
-    "Supports x402 payments and x-api-key authentication. " +
-    "Answers questions about 2026 public holidays and school terms for " +
+    "Supports x-api-key authentication (Nevermined handles pay-per-call billing). " +
+    "Answers questions about 2026 and 2027 public holidays and school terms for " +
     "New Zealand (NZ) and all Australian states and territories: " +
     "Victoria (VIC), New South Wales (NSW), Queensland (QLD), " +
     "Western Australia (WA), South Australia (SA), Tasmania (TAS), " +
@@ -169,7 +169,7 @@ server.addTool({
     "Check whether a given date is a public holiday in a specified ANZ region " +
     "(NZ, VIC, NSW, QLD, WA, SA, TAS, NT, or ACT). Returns a summary string " +
     "and a structured data object with the holiday name, type (national/regional), " +
-    "and a full chronological list of 2026 holidays for that region.",
+    "and a full chronological list of 2026–2027 holidays for that region.",
   parameters: z.object({
     date: dateParam,
     region: regionEnum,
@@ -224,7 +224,7 @@ server.addTool({
     "Determine whether a given date falls within a school term in a specified ANZ region " +
     "(NZ, VIC, NSW, QLD, WA, SA, TAS, NT, or ACT). Returns a summary string and a " +
     "structured data object with term details, week number, school days elapsed/remaining, " +
-    "and the full 2026 term schedule.",
+    "and the full 2026–2027 term schedule for that region.",
   parameters: z.object({
     date: dateParam,
     region: regionEnum,
@@ -234,7 +234,7 @@ server.addTool({
     const d = parseLocalDate(date);
     const dow = dayName(d);
     const term = findSchoolTerm(date, r);
-    const allTerms = SCHOOL_TERMS_2026.filter((t) => t.region === r);
+    const allTerms = ALL_SCHOOL_TERMS.filter((t) => t.region === r);
 
     // ── Compute in-term statistics ───────────────────────────────────────────
     let weekNumber: number | null = null;
@@ -291,7 +291,7 @@ server.addTool({
         `${date} (${dow}) is in the school holiday break in ${r}. ` +
         `${nextTerm.label} starts in ${daysUntil} day${daysUntil === 1 ? "" : "s"} on ${nextTerm.start}.`;
     } else {
-      summary = `${date} (${dow}) is not in a school term in ${r} and no further terms are scheduled for 2026.`;
+      summary = `${date} (${dow}) is not in a school term in ${r} and no further terms are scheduled for 2026–2027.`;
     }
 
     // ── Structured data ──────────────────────────────────────────────────────
@@ -326,7 +326,7 @@ server.addTool({
             }
           : null,
       },
-      full_term_schedule_2026: allTerms.map((t) => ({
+      full_term_schedule: allTerms.map((t) => ({
         term: t.term,
         label: t.label,
         start: t.start,

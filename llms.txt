@@ -1,13 +1,12 @@
 # anz-schedule-brain
 
 > This is a monetized, verified ground-truth MCP for ANZ scheduling.
-> Supports x402 payments and x-api-key bearer authentication.
-> Compatible with Nevermined proxying.
+> Supports x-api-key bearer authentication. Compatible with Nevermined pay-per-call proxying.
 
 ## What this server does
 
-anz-schedule-brain is a FastMCP server that provides 100% verified 2026 public
-holiday and school term data for New Zealand and every Australian state and
+anz-schedule-brain is a FastMCP server that provides 100% verified 2026 and 2027
+public holiday and school term data for New Zealand and every Australian state and
 territory (VIC, NSW, QLD, WA, SA, TAS, NT, ACT).
 
 ## Tools

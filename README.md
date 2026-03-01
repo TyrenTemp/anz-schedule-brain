@@ -1,6 +1,6 @@
 # 🗓 anz-schedule-brain
 
-**The only MCP server you need for ANZ public holidays, school terms, and business-day logic — 100% verified for 2026, production-ready.**
+**The only MCP server you need for ANZ public holidays, school terms, and business-day logic — 100% verified for 2026 and 2027, production-ready.**
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template)
 
@@ -25,13 +25,13 @@ Ask any frontier model when Western Australia Day is in 2026. You'll probably ge
 
 ---
 
-## 100% Verified 2026 Coverage
+## 100% Verified 2026 & 2027 Coverage
 
 ### Public Holidays — 9 Regions
 
 | Region | Holidays | State-specific highlights |
 |--------|:--------:|--------------------------|
-| 🇳🇿 NZ | 11 | Waitangi Day, Matariki (12 Jun 2026), Labour Day (4th Mon Oct) |
+| 🇳🇿 NZ | 11 | Waitangi Day, Matariki (varies by year), Labour Day (4th Mon Oct) |
 | 🟦 VIC | 13 | Labour Day (2nd Mon Mar), AFL Grand Final Friday, Melbourne Cup Day |
 | 🟦 NSW | 12 | Bank Holiday (1st Mon Aug), Labour Day (1st Mon Oct) |
 | 🟦 QLD | 11 | Labour Day (1st Mon May) |
@@ -45,7 +45,7 @@ Ask any frontier model when Western Australia Day is in 2026. You'll probably ge
 
 ### School Terms — 4 per Region
 
-Every region has four 2026 terms with computed school-day counts (excluding public holidays within the term window). All 9 regions covered.
+Every region has four terms for 2026 and 2027, with computed school-day counts (excluding public holidays within the term window). All 9 regions covered.
 
 ---
 
@@ -195,8 +195,8 @@ Set `MCP_API_KEY` in Railway's environment dashboard to lock down access.
 src/
 ├── index.ts              # FastMCP server, auth middleware, transport switcher
 └── data/
-    ├── holidays.ts       # PUBLIC_HOLIDAYS_2026 static object (9 regions, O(1) lookup map)
-    └── schoolTerms.ts    # SCHOOL_TERMS_2026 static object (9 regions × 4 terms)
+    ├── holidays.ts       # ALL_PUBLIC_HOLIDAYS static object (9 regions × 2026+2027, O(1) lookup map)
+    └── schoolTerms.ts    # ALL_SCHOOL_TERMS static object (9 regions × 4 terms × 2026+2027)
 ```
 
 All holiday data is a **static typed object** — no database, no external API calls, no latency.

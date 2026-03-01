@@ -207,12 +207,218 @@ export const PUBLIC_HOLIDAYS_2026: PublicHoliday[] = [
   { date: "2026-12-28", name: "Boxing Day (observed)",        region: "ACT", type: "national" },
 ];
 
+// ─────────────────────────────────────────────────────────────────────────────
+// 2027 PUBLIC HOLIDAYS
+//
+// Key computed dates for 2027 (Jan 1 = Friday):
+//   Good Friday       Mar 26 (Fri)   Easter Monday    Mar 29 (Mon)
+//   ANZAC Day         Apr 25 (Sun)   → Mondayised/substituted in NZ, NSW, WA, ACT
+//   NZ/NSW/WA/ACT     Apr 26 (Mon)
+//   Matariki          Jun 25 (Fri)
+//   WA Day            Jun 7  (Mon, 1st Mon Jun)
+//   King's Birthday   Jun 14 (Mon, 2nd Mon Jun — most states)
+//   WA King's Bday    Sep 27 (Mon, 4th Mon Sep)
+//   Christmas Day     Dec 25 (Sat)   Boxing Day       Dec 26 (Sun)
+//   Christmas obs.    Dec 27 (Mon)   Boxing Day obs.  Dec 28 (Tue)
+//
+// ANZAC Day 2027 falls on Sunday. Treatment by region:
+//   NZ:  Mondayised to Mon Apr 26 (Holidays Act 2003, as amended 2013)
+//   NSW: BOTH Apr 25 (Sun) AND Apr 26 (Mon) are public holidays (2-year trial)
+//   WA:  BOTH Apr 25 (Sun) AND Apr 26 (Mon) are public holidays
+//   ACT: Transferred to Mon Apr 26 only (Apr 25 not observed as PH)
+//   VIC, QLD, SA, TAS, NT: Apr 25 only — no substitute
+//
+// Waitangi Day 2027: Feb 6 = Saturday → Mondayised to Mon Feb 8 (NZ only)
+// NZ Day after New Year's: Jan 2 = Saturday → observed Mon Jan 4
+// Christmas/Boxing Day: Dec 25 = Sat, Dec 26 = Sun → Dec 27 Mon + Dec 28 Tue
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const PUBLIC_HOLIDAYS_2027: PublicHoliday[] = [
+  // ──────────────────────────────────────────────
+  // NEW ZEALAND
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "NZ", type: "national" },
+  { date: "2027-01-04", name: "Day after New Year's Day (observed)", region: "NZ", type: "national" },
+  { date: "2027-02-08", name: "Waitangi Day (observed)",      region: "NZ", type: "national" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "NZ", type: "national" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "NZ", type: "national" },
+  { date: "2027-04-26", name: "ANZAC Day (observed)",         region: "NZ", type: "national" },
+  { date: "2027-06-07", name: "King's Birthday",              region: "NZ", type: "national" },
+  { date: "2027-06-25", name: "Matariki",                     region: "NZ", type: "national" },
+  { date: "2027-10-25", name: "Labour Day",                   region: "NZ", type: "national" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "NZ", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "NZ", type: "national" },
+  { date: "2027-12-28", name: "Boxing Day (observed)",        region: "NZ", type: "national" },
+
+  // ──────────────────────────────────────────────
+  // VICTORIA (VIC)
+  // ANZAC Day falls on Sunday — no substitute in VIC.
+  // AFL Grand Final Friday: estimated Sep 24 (Friday before last Sat of Sep).
+  // Christmas/Boxing Day substitutes: Dec 27 (Mon) + Dec 28 (Tue).
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "VIC", type: "national" },
+  { date: "2027-01-26", name: "Australia Day",                region: "VIC", type: "national" },
+  { date: "2027-03-08", name: "Labour Day",                   region: "VIC", type: "regional" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "VIC", type: "national" },
+  { date: "2027-03-27", name: "Easter Saturday",              region: "VIC", type: "regional" },
+  { date: "2027-03-28", name: "Easter Sunday",                region: "VIC", type: "regional" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "VIC", type: "national" },
+  { date: "2027-04-25", name: "ANZAC Day",                    region: "VIC", type: "national" },
+  { date: "2027-06-14", name: "King's Birthday",              region: "VIC", type: "regional" },
+  { date: "2027-09-24", name: "Friday before AFL Grand Final",region: "VIC", type: "regional" },
+  { date: "2027-11-02", name: "Melbourne Cup Day",            region: "VIC", type: "regional" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "VIC", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "VIC", type: "national" },
+  { date: "2027-12-28", name: "Boxing Day (observed)",        region: "VIC", type: "national" },
+
+  // ──────────────────────────────────────────────
+  // NEW SOUTH WALES (NSW)
+  // ANZAC Day 2027: BOTH Apr 25 (Sun) AND Apr 26 (Mon) are public holidays
+  //   (2-year trial for 2026 & 2027, announced Feb 2026 by Premier Minns).
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "NSW", type: "national" },
+  { date: "2027-01-26", name: "Australia Day",                region: "NSW", type: "national" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "NSW", type: "national" },
+  { date: "2027-03-27", name: "Easter Saturday",              region: "NSW", type: "regional" },
+  { date: "2027-03-28", name: "Easter Sunday",                region: "NSW", type: "regional" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "NSW", type: "national" },
+  { date: "2027-04-25", name: "ANZAC Day",                    region: "NSW", type: "national" },
+  { date: "2027-04-26", name: "ANZAC Day (substitute)",       region: "NSW", type: "national" },
+  { date: "2027-06-14", name: "King's Birthday",              region: "NSW", type: "regional" },
+  { date: "2027-08-02", name: "Bank Holiday",                 region: "NSW", type: "regional" },
+  { date: "2027-10-04", name: "Labour Day",                   region: "NSW", type: "regional" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "NSW", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "NSW", type: "national" },
+  { date: "2027-12-28", name: "Boxing Day (observed)",        region: "NSW", type: "national" },
+
+  // ──────────────────────────────────────────────
+  // QUEENSLAND (QLD)
+  // ANZAC Day falls on Sunday — no substitute in QLD.
+  // QLD lists Boxing Day on the actual date (Dec 26 Sun) plus observed (Dec 28 Tue).
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "QLD", type: "national" },
+  { date: "2027-01-26", name: "Australia Day",                region: "QLD", type: "national" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "QLD", type: "national" },
+  { date: "2027-03-27", name: "Easter Saturday",              region: "QLD", type: "regional" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "QLD", type: "national" },
+  { date: "2027-04-25", name: "ANZAC Day",                    region: "QLD", type: "national" },
+  { date: "2027-05-03", name: "Labour Day",                   region: "QLD", type: "regional" },
+  { date: "2027-06-14", name: "King's Birthday",              region: "QLD", type: "regional" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "QLD", type: "national" },
+  { date: "2027-12-26", name: "Boxing Day",                   region: "QLD", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "QLD", type: "national" },
+  { date: "2027-12-28", name: "Boxing Day (observed)",        region: "QLD", type: "national" },
+
+  // ──────────────────────────────────────────────
+  // WESTERN AUSTRALIA (WA)
+  // Easter Saturday is NOT a public holiday in WA.
+  // ANZAC Day 2027: BOTH Apr 25 (Sun) AND Apr 26 (Mon) declared.
+  // WA Day: 1st Monday of June → Jun 7.
+  // King's Birthday: 4th Monday of September → Sep 27.
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "WA", type: "national" },
+  { date: "2027-01-26", name: "Australia Day",                region: "WA", type: "national" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "WA", type: "national" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "WA", type: "national" },
+  { date: "2027-04-25", name: "ANZAC Day",                    region: "WA", type: "national" },
+  { date: "2027-04-26", name: "ANZAC Day (substitute)",       region: "WA", type: "national" },
+  { date: "2027-06-07", name: "Western Australia Day",        region: "WA", type: "regional" },
+  { date: "2027-09-27", name: "King's Birthday",              region: "WA", type: "regional" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "WA", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "WA", type: "national" },
+  { date: "2027-12-28", name: "Boxing Day (observed)",        region: "WA", type: "national" },
+
+  // ──────────────────────────────────────────────
+  // SOUTH AUSTRALIA (SA)
+  // ANZAC Day falls on Sunday — no substitute in SA.
+  // Adelaide Cup Race Day: 2nd Monday of May → May 10.
+  // Proclamation Day (Boxing Day equivalent): Dec 26 Sun → observed Tue Dec 28.
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "SA", type: "national" },
+  { date: "2027-01-26", name: "Australia Day",                region: "SA", type: "national" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "SA", type: "national" },
+  { date: "2027-03-27", name: "Easter Saturday",              region: "SA", type: "regional" },
+  { date: "2027-03-28", name: "Easter Sunday",                region: "SA", type: "regional" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "SA", type: "national" },
+  { date: "2027-04-25", name: "ANZAC Day",                    region: "SA", type: "national" },
+  { date: "2027-05-10", name: "Adelaide Cup Race Day",        region: "SA", type: "regional" },
+  { date: "2027-06-14", name: "King's Birthday",              region: "SA", type: "regional" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "SA", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "SA", type: "national" },
+  { date: "2027-12-28", name: "Proclamation Day (observed)",  region: "SA", type: "regional" },
+
+  // ──────────────────────────────────────────────
+  // TASMANIA (TAS)
+  // ANZAC Day falls on Sunday — no substitute in TAS.
+  // Royal Hobart Regatta: 2nd Monday of February → Feb 8.
+  // Eight Hours Day: 2nd Monday of March → Mar 8.
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "TAS", type: "national" },
+  { date: "2027-01-26", name: "Australia Day",                region: "TAS", type: "national" },
+  { date: "2027-02-08", name: "Royal Hobart Regatta",         region: "TAS", type: "regional" },
+  { date: "2027-03-08", name: "Eight Hours Day",              region: "TAS", type: "regional" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "TAS", type: "national" },
+  { date: "2027-03-27", name: "Easter Saturday",              region: "TAS", type: "regional" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "TAS", type: "national" },
+  { date: "2027-04-25", name: "ANZAC Day",                    region: "TAS", type: "national" },
+  { date: "2027-06-14", name: "King's Birthday",              region: "TAS", type: "regional" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "TAS", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "TAS", type: "national" },
+  { date: "2027-12-28", name: "Boxing Day (observed)",        region: "TAS", type: "national" },
+
+  // ──────────────────────────────────────────────
+  // NORTHERN TERRITORY (NT)
+  // ANZAC Day falls on Sunday — no substitute in NT.
+  // May Day: 1st Monday of May → May 3.
+  // Picnic Day: 1st Monday of August → Aug 2.
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "NT", type: "national" },
+  { date: "2027-01-26", name: "Australia Day",                region: "NT", type: "national" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "NT", type: "national" },
+  { date: "2027-03-27", name: "Easter Saturday",              region: "NT", type: "regional" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "NT", type: "national" },
+  { date: "2027-04-25", name: "ANZAC Day",                    region: "NT", type: "national" },
+  { date: "2027-05-03", name: "May Day",                      region: "NT", type: "regional" },
+  { date: "2027-06-14", name: "King's Birthday",              region: "NT", type: "regional" },
+  { date: "2027-08-02", name: "Picnic Day",                   region: "NT", type: "regional" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "NT", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "NT", type: "national" },
+  { date: "2027-12-28", name: "Boxing Day (observed)",        region: "NT", type: "national" },
+
+  // ──────────────────────────────────────────────
+  // AUSTRALIAN CAPITAL TERRITORY (ACT)
+  // ANZAC Day 2027: Transferred to Mon Apr 26 only (Apr 25 Sun not observed as PH).
+  // Canberra Day: 2nd Monday of March → Mar 8.
+  // Reconciliation Day: Monday nearest May 27 (Thu) → May 24 (Mon, 3 days prior).
+  // ──────────────────────────────────────────────
+  { date: "2027-01-01", name: "New Year's Day",               region: "ACT", type: "national" },
+  { date: "2027-01-26", name: "Australia Day",                region: "ACT", type: "national" },
+  { date: "2027-03-08", name: "Canberra Day",                 region: "ACT", type: "regional" },
+  { date: "2027-03-26", name: "Good Friday",                  region: "ACT", type: "national" },
+  { date: "2027-03-27", name: "Easter Saturday",              region: "ACT", type: "regional" },
+  { date: "2027-03-29", name: "Easter Monday",                region: "ACT", type: "national" },
+  { date: "2027-04-26", name: "ANZAC Day (substitute)",       region: "ACT", type: "national" },
+  { date: "2027-05-24", name: "Reconciliation Day",           region: "ACT", type: "regional" },
+  { date: "2027-06-14", name: "King's Birthday",              region: "ACT", type: "regional" },
+  { date: "2027-12-25", name: "Christmas Day",                region: "ACT", type: "national" },
+  { date: "2027-12-27", name: "Christmas Day (observed)",     region: "ACT", type: "national" },
+  { date: "2027-12-28", name: "Boxing Day (observed)",        region: "ACT", type: "national" },
+];
+
+/**
+ * Combined holiday list for all supported years (2026 + 2027).
+ */
+export const ALL_PUBLIC_HOLIDAYS: PublicHoliday[] = [
+  ...PUBLIC_HOLIDAYS_2026,
+  ...PUBLIC_HOLIDAYS_2027,
+];
+
 /**
  * Returns an indexed lookup map for O(1) holiday checking.
  * Key format: "YYYY-MM-DD::REGION"
  */
 export const HOLIDAY_LOOKUP: Map<string, PublicHoliday> = new Map(
-  PUBLIC_HOLIDAYS_2026.map((h) => [`${h.date}::${h.region}`, h])
+  ALL_PUBLIC_HOLIDAYS.map((h) => [`${h.date}::${h.region}`, h])
 );
 
 export const VALID_REGIONS: Region[] = ["NZ", "VIC", "NSW", "QLD", "WA", "SA", "TAS", "NT", "ACT"];

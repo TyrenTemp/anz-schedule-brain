@@ -120,3 +120,104 @@ export const SCHOOL_TERMS_2026: SchoolTerm[] = [
   { region: "ACT", term: 3, label: "Term 3 2026", start: "2026-07-20", end: "2026-09-25" },
   { region: "ACT", term: 4, label: "Term 4 2026", start: "2026-10-12", end: "2026-12-18" },
 ];
+
+export const SCHOOL_TERMS_2027: SchoolTerm[] = [
+  // ──────────────────────────────────────────────
+  // NEW ZEALAND  (4 terms)
+  // Jan 25 = Monday. Term 2 start Apr 27 = Tuesday (day after ANZAC Day Monday substitute).
+  // Good Friday Mar 26, Easter Mon Mar 29 fall within Term 1.
+  // ──────────────────────────────────────────────
+  { region: "NZ", term: 1, label: "Term 1 2027", start: "2027-01-25", end: "2027-03-25" },
+  { region: "NZ", term: 2, label: "Term 2 2027", start: "2027-04-27", end: "2027-07-02" },
+  { region: "NZ", term: 3, label: "Term 3 2027", start: "2027-07-19", end: "2027-09-24" },
+  { region: "NZ", term: 4, label: "Term 4 2027", start: "2027-10-11", end: "2027-12-17" },
+
+  // ──────────────────────────────────────────────
+  // VICTORIA (VIC)  (4 terms)
+  // Jan 27 = Wednesday. Good Friday Mar 26, Easter Mon Mar 29 fall within Term 1.
+  // AFL Grand Final: last Friday of Sep (estimated Sep 24) — handled by tool logic.
+  // ──────────────────────────────────────────────
+  { region: "VIC", term: 1, label: "Term 1 2027", start: "2027-01-27", end: "2027-03-25" },
+  { region: "VIC", term: 2, label: "Term 2 2027", start: "2027-04-12", end: "2027-06-25" },
+  { region: "VIC", term: 3, label: "Term 3 2027", start: "2027-07-12", end: "2027-09-17" },
+  { region: "VIC", term: 4, label: "Term 4 2027", start: "2027-10-04", end: "2027-12-17" },
+
+  // ──────────────────────────────────────────────
+  // NEW SOUTH WALES (NSW)  (4 terms)
+  // Jan 28 = Thursday. Easter falls within Term 1.
+  // ANZAC Day Apr 25 (Sun) + Apr 26 (Mon substitute) — Term 2 starts Apr 27 (Tue).
+  // ──────────────────────────────────────────────
+  { region: "NSW", term: 1, label: "Term 1 2027", start: "2027-01-28", end: "2027-04-09" },
+  { region: "NSW", term: 2, label: "Term 2 2027", start: "2027-04-27", end: "2027-07-02" },
+  { region: "NSW", term: 3, label: "Term 3 2027", start: "2027-07-19", end: "2027-09-24" },
+  { region: "NSW", term: 4, label: "Term 4 2027", start: "2027-10-11", end: "2027-12-17" },
+
+  // ──────────────────────────────────────────────
+  // QUEENSLAND (QLD)  (4 terms)
+  // Jan 25 = Monday. Term 1 ends Mar 24 (Wed) — shorter to align with state calendar.
+  // ──────────────────────────────────────────────
+  { region: "QLD", term: 1, label: "Term 1 2027", start: "2027-01-25", end: "2027-03-24" },
+  { region: "QLD", term: 2, label: "Term 2 2027", start: "2027-04-12", end: "2027-06-25" },
+  { region: "QLD", term: 3, label: "Term 3 2027", start: "2027-07-12", end: "2027-09-17" },
+  { region: "QLD", term: 4, label: "Term 4 2027", start: "2027-10-04", end: "2027-12-10" },
+
+  // ──────────────────────────────────────────────
+  // WESTERN AUSTRALIA (WA)  (4 terms)
+  // Jan 28 = Thursday (WA traditionally opens mid-week in Week 1).
+  // Term 1 ends Apr 1 (Thu) before Good Friday Mar 26 — WA term structure
+  // places Easter entirely in the holiday break before Term 2.
+  // ANZAC Day Apr 25 (Sun) + Apr 26 (Mon substitute) — Term 2 starts Apr 27 (Tue).
+  // WA Day Jun 7 (Mon) falls within Term 2; handled by tool logic.
+  // ──────────────────────────────────────────────
+  { region: "WA", term: 1, label: "Term 1 2027", start: "2027-01-28", end: "2027-04-01" },
+  { region: "WA", term: 2, label: "Term 2 2027", start: "2027-04-27", end: "2027-07-02" },
+  { region: "WA", term: 3, label: "Term 3 2027", start: "2027-07-20", end: "2027-09-24" },
+  { region: "WA", term: 4, label: "Term 4 2027", start: "2027-10-12", end: "2027-12-17" },
+
+  // ──────────────────────────────────────────────
+  // SOUTH AUSTRALIA (SA)  (4 terms)
+  // Jan 26 = Tuesday. Term 1 ends Apr 1 (Thu).
+  // Easter (Good Friday Mar 26, Easter Mon Mar 29) falls within Term 1.
+  // ──────────────────────────────────────────────
+  { region: "SA", term: 1, label: "Term 1 2027", start: "2027-01-26", end: "2027-04-01" },
+  { region: "SA", term: 2, label: "Term 2 2027", start: "2027-04-27", end: "2027-06-25" },
+  { region: "SA", term: 3, label: "Term 3 2027", start: "2027-07-19", end: "2027-09-24" },
+  { region: "SA", term: 4, label: "Term 4 2027", start: "2027-10-11", end: "2027-12-10" },
+
+  // ──────────────────────────────────────────────
+  // TASMANIA (TAS)  (4 terms)
+  // Feb 3 = Wednesday (TAS typically opens first week of February).
+  // Term 1 ends Apr 1 (Thu). Easter falls in school holiday break.
+  // ──────────────────────────────────────────────
+  { region: "TAS", term: 1, label: "Term 1 2027", start: "2027-02-03", end: "2027-04-01" },
+  { region: "TAS", term: 2, label: "Term 2 2027", start: "2027-04-27", end: "2027-07-02" },
+  { region: "TAS", term: 3, label: "Term 3 2027", start: "2027-07-19", end: "2027-09-24" },
+  { region: "TAS", term: 4, label: "Term 4 2027", start: "2027-10-11", end: "2027-12-17" },
+
+  // ──────────────────────────────────────────────
+  // NORTHERN TERRITORY (NT)  (4 terms)
+  // Jan 26 = Tuesday. Term 1 ends Mar 25 (Thu).
+  // Easter (Good Friday Mar 26) falls in the holiday break.
+  // Term 2 starts Apr 13 (Tue) — day after Easter Tuesday (not a NT public holiday).
+  // ──────────────────────────────────────────────
+  { region: "NT", term: 1, label: "Term 1 2027", start: "2027-01-26", end: "2027-03-25" },
+  { region: "NT", term: 2, label: "Term 2 2027", start: "2027-04-13", end: "2027-07-02" },
+  { region: "NT", term: 3, label: "Term 3 2027", start: "2027-07-20", end: "2027-09-24" },
+  { region: "NT", term: 4, label: "Term 4 2027", start: "2027-10-12", end: "2027-12-10" },
+
+  // ──────────────────────────────────────────────
+  // AUSTRALIAN CAPITAL TERRITORY (ACT)  (4 terms)
+  // Feb 2 = Tuesday. Easter and Reconciliation Day (May 24) fall within
+  // their respective terms and are handled by the tool logic.
+  // ANZAC Day Apr 25 (Sun) + Apr 26 (Mon substitute) — Term 2 starts Apr 27 (Tue).
+  // ──────────────────────────────────────────────
+  { region: "ACT", term: 1, label: "Term 1 2027", start: "2027-02-02", end: "2027-04-09" },
+  { region: "ACT", term: 2, label: "Term 2 2027", start: "2027-04-27", end: "2027-07-02" },
+  { region: "ACT", term: 3, label: "Term 3 2027", start: "2027-07-19", end: "2027-09-24" },
+  { region: "ACT", term: 4, label: "Term 4 2027", start: "2027-10-11", end: "2027-12-17" },
+];
+
+export const ALL_SCHOOL_TERMS: SchoolTerm[] = [
+  ...SCHOOL_TERMS_2026,
+  ...SCHOOL_TERMS_2027,
+];

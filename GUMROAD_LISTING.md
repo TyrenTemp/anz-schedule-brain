@@ -10,19 +10,19 @@ You ask Claude, GPT-4, or Gemini: *"Is October 27 a public holiday in Melbourne?
 
 Floating holidays — computed from rules like *"4th Monday of September"* or *"Monday nearest May 27"* — don't appear verbatim in training data. LLMs pattern-match, not compute. The error rate on edge cases (WA King's Birthday, SA Proclamation Day, NT Picnic Day) is above 40%.
 
-**ANZ Schedule Brain** is a production-ready MCP server that gives your AI agent verified ground-truth answers for every public holiday and school term in New Zealand and all 8 Australian states and territories — 2026 data, statically verified against official government gazettes.
+**ANZ Schedule Brain** is a production-ready MCP server that gives your AI agent verified ground-truth answers for every public holiday and school term in New Zealand and all 8 Australian states and territories — 2026 and 2027 data, statically verified against official government gazettes.
 
 ---
 
 ## What You Get
 
-**3 MCP tools, 9 regions, zero hallucinations — verified 2026 data:**
+**3 MCP tools, 9 regions, zero hallucinations — verified 2026 & 2027 data:**
 
 ### `is_public_holiday(date, region)`
 Returns whether a date is a public holiday, which holiday it is, and a complete list of all holidays for that region. Handles edge cases your LLM gets wrong every time:
 - WA observes King's Birthday in **September**, not June
 - WA has **no Easter Saturday**
-- NZ has **Matariki** (June 12, 2026); no Australian state does
+- NZ has **Matariki** (varies by year); no Australian state does
 - SA observes **Easter Sunday** as a public holiday; most don't
 
 ### `get_school_term(date, region)`
@@ -173,7 +173,7 @@ data: {"jsonrpc":"2.0","method":"sse/connection","params":{"message":"SSE Connec
 - **Framework:** FastMCP 1.26.0 (MCP server framework)
 - **Transport:** SSE (for remote) / stdio (for local Claude Desktop)
 - **Data:** Static typed objects — no database, no external API calls, no latency
-- **Auth:** x-api-key header middleware, compatible with x402 micropayments and Nevermined proxying
+- **Auth:** x-api-key header middleware, compatible with Nevermined pay-per-call proxying
 - **Deploy:** Railway (nixpacks, Node 20 pinned)
 
 ---
