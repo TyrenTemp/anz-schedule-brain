@@ -5,6 +5,17 @@
  * "start" is the first day students attend; "end" is the last day students attend.
  * Public holidays that fall within a term are handled at runtime by the tool logic.
  *
+ * Primary vs Secondary school differences:
+ *   NZ:  Terms 2 and 3 are FIXED (same for all school types). Term 1 start (Jan 26–Feb 9)
+ *        and Term 4 end (by Dec 18) are flexible at the school level.
+ *        Primary/intermediate require 378 minimum half-days; secondary require 376.
+ *        Dates below reflect the MoE fixed dates for Terms 2–3 and a standard default
+ *        for Terms 1 and 4. Individual schools may vary within the permitted range.
+ *   AU:  All Australian states set a single state-wide term calendar that applies to
+ *        both primary and secondary public schools. No formal split between levels exists.
+ *        Year 12 students may finish Term 4 earlier (late Oct–early Nov) for exams,
+ *        but this is not reflected as a separate term date in state calendars.
+ *
  * Sources:
  *   - NZ:  https://www.education.govt.nz/school/running-a-school/term-dates/
  *   - VIC: https://www.education.vic.gov.au/school/teachers/management/pages/termhol.aspx
@@ -31,8 +42,8 @@ export const SCHOOL_TERMS_2026: SchoolTerm[] = [
   // ──────────────────────────────────────────────
   // NEW ZEALAND  (4 terms)
   // ──────────────────────────────────────────────
-  { region: "NZ", term: 1, label: "Term 1 2026", start: "2026-01-29", end: "2026-04-09" },
-  { region: "NZ", term: 2, label: "Term 2 2026", start: "2026-04-27", end: "2026-07-03" },
+  { region: "NZ", term: 1, label: "Term 1 2026", start: "2026-01-29", end: "2026-04-02" },
+  { region: "NZ", term: 2, label: "Term 2 2026", start: "2026-04-20", end: "2026-07-03" },
   { region: "NZ", term: 3, label: "Term 3 2026", start: "2026-07-20", end: "2026-09-25" },
   { region: "NZ", term: 4, label: "Term 4 2026", start: "2026-10-12", end: "2026-12-17" },
 

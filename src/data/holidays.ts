@@ -6,10 +6,18 @@
  *
  * Key computed dates:
  *   Good Friday       Apr 3  (Fri)   Easter Monday    Apr 6  (Mon)
- *   ANZAC Day         Apr 25 (Sat)   WA Day           Jun 1  (Mon, 1st Mon Jun)
+ *   ANZAC Day         Apr 25 (Sat)   → Mondayised/substituted in NZ, NSW, WA, ACT
+ *   NZ observed       Apr 27 (Mon)   WA Day           Jun 1  (Mon, 1st Mon Jun)
  *   King's Birthday   Jun 8  (Mon, 2nd Mon Jun — most states)
  *   WA King's Bday    Sep 28 (Mon, 4th Mon Sep)
  *   Christmas Day     Dec 25 (Fri)   Boxing Day sub   Dec 28 (Mon)
+ *
+ * ANZAC Day 2026 falls on Saturday. Treatment by region:
+ *   NZ:  Mondayised to Mon Apr 27 (Holidays Act 2003, as amended 2013)
+ *   NSW: BOTH Apr 25 (Sat) AND Apr 27 (Mon) are public holidays (2-year trial, Feb 2026)
+ *   WA:  BOTH Apr 25 (Sat) AND Apr 27 (Mon) are public holidays
+ *   ACT: Transferred to Mon Apr 27 only (Apr 25 not observed as PH)
+ *   VIC, QLD, SA, TAS, NT: Apr 25 only — no substitute
  *
  * Sources:
  *   - NZ:  https://www.employment.govt.nz/leave-and-holidays/public-holidays/
@@ -41,7 +49,7 @@ export const PUBLIC_HOLIDAYS_2026: PublicHoliday[] = [
   { date: "2026-02-06", name: "Waitangi Day",                 region: "NZ", type: "national" },
   { date: "2026-04-03", name: "Good Friday",                  region: "NZ", type: "national" },
   { date: "2026-04-06", name: "Easter Monday",                region: "NZ", type: "national" },
-  { date: "2026-04-25", name: "ANZAC Day",                    region: "NZ", type: "national" },
+  { date: "2026-04-27", name: "ANZAC Day (observed)",          region: "NZ", type: "national" },
   { date: "2026-06-01", name: "King's Birthday",              region: "NZ", type: "national" },
   { date: "2026-06-12", name: "Matariki",                     region: "NZ", type: "national" },
   { date: "2026-10-26", name: "Labour Day",                   region: "NZ", type: "national" },
@@ -75,6 +83,7 @@ export const PUBLIC_HOLIDAYS_2026: PublicHoliday[] = [
   { date: "2026-04-05", name: "Easter Sunday",                region: "NSW", type: "regional" },
   { date: "2026-04-06", name: "Easter Monday",                region: "NSW", type: "national" },
   { date: "2026-04-25", name: "ANZAC Day",                    region: "NSW", type: "national" },
+  { date: "2026-04-27", name: "ANZAC Day (substitute)",       region: "NSW", type: "national" },
   { date: "2026-06-08", name: "King's Birthday",              region: "NSW", type: "regional" },
   { date: "2026-08-03", name: "Bank Holiday",                 region: "NSW", type: "regional" },
   { date: "2026-10-05", name: "Labour Day",                   region: "NSW", type: "regional" },
@@ -109,6 +118,7 @@ export const PUBLIC_HOLIDAYS_2026: PublicHoliday[] = [
   { date: "2026-04-03", name: "Good Friday",                  region: "WA", type: "national" },
   { date: "2026-04-06", name: "Easter Monday",                region: "WA", type: "national" },
   { date: "2026-04-25", name: "ANZAC Day",                    region: "WA", type: "national" },
+  { date: "2026-04-27", name: "ANZAC Day (substitute)",       region: "WA", type: "national" },
   { date: "2026-06-01", name: "Western Australia Day",        region: "WA", type: "regional" },
   { date: "2026-09-28", name: "King's Birthday",              region: "WA", type: "regional" },
   { date: "2026-12-25", name: "Christmas Day",                region: "WA", type: "national" },
@@ -190,7 +200,7 @@ export const PUBLIC_HOLIDAYS_2026: PublicHoliday[] = [
   { date: "2026-04-03", name: "Good Friday",                  region: "ACT", type: "national" },
   { date: "2026-04-04", name: "Easter Saturday",              region: "ACT", type: "regional" },
   { date: "2026-04-06", name: "Easter Monday",                region: "ACT", type: "national" },
-  { date: "2026-04-25", name: "ANZAC Day",                    region: "ACT", type: "national" },
+  { date: "2026-04-27", name: "ANZAC Day (substitute)",        region: "ACT", type: "national" },
   { date: "2026-05-25", name: "Reconciliation Day",           region: "ACT", type: "regional" },
   { date: "2026-06-08", name: "King's Birthday",              region: "ACT", type: "regional" },
   { date: "2026-12-25", name: "Christmas Day",                region: "ACT", type: "national" },

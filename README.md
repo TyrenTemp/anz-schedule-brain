@@ -1,6 +1,6 @@
 # 🗓 anz-schedule-brain
 
-**The only MCP server you need for ANZ public holidays, school terms, and business-day logic — 100% verified, production-ready.**
+**The only MCP server you need for ANZ public holidays, school terms, and business-day logic — 100% verified for 2026, production-ready.**
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template)
 
@@ -25,7 +25,7 @@ Ask any frontier model when Western Australia Day is in 2026. You'll probably ge
 
 ---
 
-## 100% Verified 2026 / 2027 Coverage
+## 100% Verified 2026 Coverage
 
 ### Public Holidays — 9 Regions
 
